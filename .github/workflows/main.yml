@@ -24,6 +24,6 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-          repository: jscheeres/stretchtopvoutput
+          repository: jscheeres/stretchtopvoutput:latest
           tag_with_ref: true
 
