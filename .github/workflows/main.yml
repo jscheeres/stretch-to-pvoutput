@@ -26,6 +26,5 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-          push: true
           tags: jscheeres/stretchtopvoutput:latest
           repository: jscheeres/stretchtopvoutput
