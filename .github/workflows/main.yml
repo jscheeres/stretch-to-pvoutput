@@ -17,6 +17,8 @@ jobs:
   main:
     runs-on: ubuntu-latest
     steps:
+      - name: Run GitVersion
+        uses: roryprimrose/rungitversion@v1.0.0
       - name: Check out the repo
         uses: actions/checkout@v2
       - name: Push to Docker Hub
@@ -24,5 +26,6 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
+          push: true
+          tags: jscheeres/stretchtopvoutput:latest
           repository: jscheeres/stretchtopvoutput
-          tag_with_ref: true
