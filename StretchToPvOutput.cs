@@ -55,7 +55,7 @@ namespace stretchtopvoutput
                                                     .Descendants()
                                                     .FirstOrDefault(pl => pl.Name == "measurement");
                 var electricityProduced = electricityProducedElement.Value.Substring(0, electricityProducedElement.Value.IndexOf("."));
-                var timestamp = DateTime.Parse(electricityProducedElement.Attributes().FirstOrDefault(e => e.Name == "log_date").Value, new System.Globalization.CultureInfo("nl-NL"));
+                var timestamp = DateTime.Parse(electricityProducedElement.Attributes().FirstOrDefault(e => e.Name == "log_date").Value);
                 
                 log.LogInformation($"{electricityProduced} W electricity produced on {timestamp}");
                 log.LogInformation($"SolarReading finished: {DateTime.Now}");
