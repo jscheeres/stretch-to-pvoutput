@@ -25,7 +25,7 @@ namespace stretchtopvoutput
         }
 
         [FunctionName("StretchToPvOutput")]
-        public async Task Run([TimerTrigger("0 * */5 * * *")]TimerInfo myTimer, ILogger log)
+        public async Task Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger log)
         {
             try {
                 log.LogInformation($"SolarReading started: {DateTime.Now}");
@@ -77,7 +77,7 @@ namespace stretchtopvoutput
                     new KeyValuePair<string, string>("t", t),
                     new KeyValuePair<string, string>("v2", v2)
                 });
-                
+
                 content.Headers.ContentType = new MediaTypeHeaderValue("application/x-www-form-urlencoded");
                 
                 var pvOutputRawResponse = await _pvOutputClient.PostAsync("service/r2/addstatus.jsp", content);
